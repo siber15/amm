@@ -8,3 +8,8 @@
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 slips_path, :class => 'btn btn-default' %>
 <% end %>
+
+<%= f.association :pier, include_blank: true %>
+<%= f.input :slip_number %>
+<%= f.submit %>
+<% end %>

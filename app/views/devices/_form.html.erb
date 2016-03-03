@@ -1,0 +1,26 @@
+<%= simple_form_for @device, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :slip_id %>
+  <%= error_span(@device[:slip_id]) %>
+  <%= f.input :active %>
+  <%= error_span(@device[:active]) %>
+  <%= f.input :device_number %>
+  <%= error_span(@device[:device_number]) %>
+  <%= f.input :mac_address %>
+  <%= error_span(@device[:mac_address]) %>
+  <%= f.input :last_seen %>
+  <%= error_span(@device[:last_seen]) %>
+  <%= f.input :install_date %>
+  <%= error_span(@device[:install_date]) %>
+  <%= f.input :software_version %>
+  <%= error_span(@device[:software_version]) %>
+  <%= f.input :hardware_version %>
+  <%= error_span(@device[:hardware_version]) %>
+  <%= f.input :current_status %>
+  <%= error_span(@device[:current_status]) %>
+  <%= f.input :killed_date %>
+  <%= error_span(@device[:killed_date]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                devices_path, :class => 'btn btn-default' %>
+<% end %>

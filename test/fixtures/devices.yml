@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slip_id: 
+  active: false
+  device_number: MyString
+  mac_address: MyString
+  last_seen: 2016-03-03 16:35:33
+  install_date: 2016-03-03 16:35:33
+  software_version: MyString
+  hardware_version: MyString
+  current_status: false
+  killed_date: 2016-03-03 16:35:33
+
+two:
+  slip_id: 
+  active: false
+  device_number: MyString
+  mac_address: MyString
+  last_seen: 2016-03-03 16:35:33
+  install_date: 2016-03-03 16:35:33
+  software_version: MyString
+  hardware_version: MyString
+  current_status: false
+  killed_date: 2016-03-03 16:35:33

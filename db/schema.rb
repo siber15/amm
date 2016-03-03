@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303145111) do
+ActiveRecord::Schema.define(version: 20160303153533) do
+
+  create_table "devices", force: :cascade do |t|
+    t.integer  "slip_id"
+    t.boolean  "active"
+    t.string   "device_number"
+    t.string   "mac_address"
+    t.datetime "last_seen"
+    t.datetime "install_date"
+    t.string   "software_version"
+    t.string   "hardware_version"
+    t.boolean  "current_status"
+    t.datetime "killed_date"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "devices", ["slip_id"], name: "index_devices_on_slip_id"
 
   create_table "harbours", force: :cascade do |t|
     t.string   "name"
