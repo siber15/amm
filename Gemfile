@@ -27,7 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
-
+#simple_form
+gem "simple_form"
+gem "country_select"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
