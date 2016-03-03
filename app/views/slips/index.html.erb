@@ -1,4 +1,4 @@
-<%- model_class = Pier -%>
+<%- model_class = Slip -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -6,24 +6,24 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:harbour_id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:slip_number) %></th>
+      <th><%= model_class.human_attribute_name(:pier_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @piers.each do |pier| %>
+    <% @slips.each do |slip| %>
       <tr>
-        <td><%= link_to pier.id, pier_path(pier) %></td>
-        <td><%= pier.harbour.name %></td>
-        <td><%= pier.name %></td>
-        <td><%=l pier.created_at %></td>
+        <td><%= link_to slip.id, slip_path(slip) %></td>
+        <td><%= slip.slip_number %></td>
+        <td><%= slip.pier_id %></td>
+        <td><%=l slip.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_pier_path(pier), :class => 'btn btn-default btn-xs' %>
+                      edit_slip_path(slip), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      pier_path(pier),
+                      slip_path(slip),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
@@ -34,5 +34,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_pier_path,
+            new_slip_path,
             :class => 'btn btn-primary' %>

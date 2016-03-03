@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303103409) do
+ActiveRecord::Schema.define(version: 20160303145111) do
 
   create_table "harbours", force: :cascade do |t|
     t.string   "name"
@@ -34,5 +34,14 @@ ActiveRecord::Schema.define(version: 20160303103409) do
   end
 
   add_index "piers", ["harbour_id"], name: "index_piers_on_harbour_id"
+
+  create_table "slips", force: :cascade do |t|
+    t.string   "slip_number"
+    t.integer  "pier_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "slips", ["pier_id"], name: "index_slips_on_pier_id"
 
 end
