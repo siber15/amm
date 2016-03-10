@@ -1,4 +1,4 @@
-<%= simple_form_for @pier, :html => { :class => "form-horizontal pier" } do |f| %>
+<%= simple_form_for [@harbour, @pier], :html => { :class => "form-horizontal pier" } do |f| %>
 
   <% if @pier.errors.any? %>
     <div id="error_expl" class="panel panel-danger">

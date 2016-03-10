@@ -1,10 +1,13 @@
 class PiersController < ApplicationController
+  before_action :set_harbour
   before_action :set_pier, only: [:show, :edit, :update, :destroy]
+
+
 
   # GET /piers
   # GET /piers.json
   def index
-    @piers = Pier.all
+    @piers = @harbour.piers.all
   end
 
   # GET /piers/1
@@ -25,15 +28,10 @@ class PiersController < ApplicationController
   # POST /piers.json
   def create
     @pier = Pier.new(pier_params)
-
-    respond_to do |format|
-      if @pier.save
-        format.html { redirect_to @pier, notice: 'Pier was successfully created.' }
-        format.json { render :show, status: :created, location: @pier }
-      else
-        format.html { render :new }
-        format.json { render json: @pier.errors, status: :unprocessable_entity }
-      end
+    if @pier.save
+      redirect_to harbour_piers_path(@pier.harbour), notice: 'Pier was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -61,10 +59,15 @@ class PiersController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pier
       @pier = Pier.find(params[:id])
+    end
+
+    def set_harbour
+      @harbour = Harbour.find(params[:harbour_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

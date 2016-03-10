@@ -22,6 +22,9 @@
   <dd><%= @harbour.active %></dd>
 </dl>
 
+<%= link_to "Piers", harbour_piers_path(@harbour), class: "btn btn-default" %>
+
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               harbours_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
