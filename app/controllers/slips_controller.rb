@@ -28,11 +28,9 @@ class SlipsController < ApplicationController
 
     respond_to do |format|
       if @slip.save
-        format.html { redirect_to @slip, notice: 'Slip was successfully created.' }
-        format.json { render :show, status: :created, location: @slip }
+         redirect_to @slip, notice: 'Slip was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @slip.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
