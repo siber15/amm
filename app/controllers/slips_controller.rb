@@ -1,14 +1,15 @@
 class SlipsController < ApplicationController
+  before_action :set_harbour
+  before_action :set_pier
   before_action :set_slip, only: [:show, :edit, :update, :destroy]
 
   # GET /slips
   # GET /slips.json
   def index
-    @slips = Slip.all
+    @slips = @harbour.@pier.slips.all
   end
 
   # GET /slips/1
-  # GET /slips/1.json
   def show
   end
 
@@ -25,7 +26,6 @@ class SlipsController < ApplicationController
   # POST /slips.json
   def create
     @slip = Slip.new(slip_params)
-
     respond_to do |format|
       if @slip.save
          redirect_to @slip, notice: 'Slip was successfully created.' }
@@ -63,6 +63,14 @@ class SlipsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_slip
       @slip = Slip.find(params[:id])
+    end
+
+    def set_pier
+      @pier = Pier.find(params[:pier_id])
+    end
+
+    def set_harbour
+      @harbour = Harbour.find(params[:harbour_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

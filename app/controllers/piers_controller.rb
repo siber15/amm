@@ -5,7 +5,7 @@ class PiersController < ApplicationController
 
 
   # GET /piers
-  # GET /piers.json
+  # Def: piers i stedet for at skulle skrive harbour piers hver gang
   def index
     @piers = @harbour.piers.all
   end
