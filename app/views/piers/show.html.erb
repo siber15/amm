@@ -11,11 +11,11 @@
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              piers_path, :class => 'btn btn-default'  %>
+              harbour_piers_path(@harbour), :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_pier_path(@pier), :class => 'btn btn-default' %>
+              edit_harbour_pier_path(@harbour, @pier), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              pier_path(@pier),
+              harbour_pier_path(@harbour, @pier),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

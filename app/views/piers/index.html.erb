@@ -15,7 +15,7 @@
   <tbody>
     <% @piers.each do |pier| %>
       <tr>
-        <td><%= link_to pier.id, harbour_piers_path(pier.harbour, pier) %></td>
+        <td><%= link_to pier.id, harbour_pier_path(pier.harbour, pier) %></td>
         <td><%= pier.harbour.name %></td>
         <td><%= pier.name %></td>
         <td><%=l pier.created_at %></td>

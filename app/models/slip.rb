@@ -1,4 +1,4 @@
 class Slip < ActiveRecord::Base
   belongs_to :pier
-  has_one :device
+  has_many :device
 end
