@@ -1,15 +1,8 @@
 <%= simple_form_for @slip, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :slip_number %>
-  <%= error_span(@slip[:slip_number]) %>
-  <%= f.input :pier_id %>
-  <%= error_span(@slip[:pier_id]) %>
-
+  <%= f.association :pier, include_blank: false %>
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 slips_path, :class => 'btn btn-default' %>
-<% end %>
 
-<%= f.association :pier, include_blank: true %>
-<%= f.input :slip_number %>
-<%= f.submit %>
 <% end %>
