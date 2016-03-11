@@ -1,8 +1,21 @@
-<%= simple_form_for @slip, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :slip_number %>
-  <%= f.association :pier, include_blank: false %>
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                slips_path, :class => 'btn btn-default' %>
+<%= simple_form_for [@pier, @slip], :html => { :class => 'form-horizontal' } do |f| %>
 
+  <% if @slip.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@slip.errors.count, "error") %> prohibited this pier from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @slip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.association :pier, include_blank: false %>
+  <%= f.input :slip_number %>
+  <%= f.submit %>
 <% end %>
