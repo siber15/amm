@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :piers do
     resources :slips
   end
-  root 'harbours#index'
 
+  root 'harbours#index'
 end

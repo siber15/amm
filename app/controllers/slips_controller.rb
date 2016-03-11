@@ -6,7 +6,7 @@ class SlipsController < ApplicationController
   # GET /slips
   # GET /slips.json
   def index
-    @slips = @harbour.@pier.slips.all
+    @slips = @pier.slips.all
   end
 
   # GET /slips/1
@@ -26,14 +26,12 @@ class SlipsController < ApplicationController
   # POST /slips.json
   def create
     @slip = Slip.new(slip_params)
-    respond_to do |format|
       if @slip.save
-         redirect_to @slip, notice: 'Slip was successfully created.' }
+         redirect_to pier_slips_path(@slip.pier), notice: 'Slip was successfully created.'
       else
         render :new
       end
     end
-  end
 
   # PATCH/PUT /slips/1
   # PATCH/PUT /slips/1.json
