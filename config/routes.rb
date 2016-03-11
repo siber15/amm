@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :devices, :slips
+  resources :devices
   resources :harbours do
     resources :piers
   end
