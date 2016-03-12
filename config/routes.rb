@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :devices
-  resources :harbours do
+  resources :harbours, shallow: true do
     resources :piers
-  end
-
-  resources :piers do
     resources :slips
+    resources :devices
   end
 
   root 'harbours#index'
