@@ -15,13 +15,24 @@
   <tbody>
     <% @piers.each do |pier| %>
       <tr>
-        <td><%= link_to pier.id, harbour_pier_path(pier.harbour, pier) %></td>
+        <!--
+          hvis du kigger i på http://localhost:3000/routes
+          kan du se at du ikke længere har en harbour_pier_path pga. shallow nesting
+          derfor bliver harbour_pier_path ændret til pier_path(pier) - eller forkoretet bare pier (rails ved hvad du mener i det her tilfælde)
+       -->
+        <td><%= link_to pier.id, pier %></td>
         <td><%= pier.harbour.name %></td>
         <td><%= pier.name %></td>
         <td><%=l pier.created_at %></td>
         <td>
+
+        <!--  
+          det samme gør sig gældende her, du har ikke end edit_harbour_pier_path længere men kun en edit_pier path
+          derfor skal du ikke referer harbour mere.
+        -->
+
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_harbour_pier_path(pier.harbour, pier), :class => 'btn btn-default btn-xs' %>
+                      edit_pier_path(pier), :class => 'btn btn-default btn-xs' %>
 
       </tr>
     <% end %>
