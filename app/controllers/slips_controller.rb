@@ -1,5 +1,7 @@
 class SlipsController < ApplicationController
-  before_action :set_harbour
+  #before_action :set_harbour
+  # du har ikke længere pier til rådighed (se localhost:3000/path) pga. shallow nesting
+
   before_action :set_pier
   before_action :set_slip, only: [:show, :edit, :update, :destroy]
 
@@ -67,9 +69,10 @@ class SlipsController < ApplicationController
       @pier = Pier.find(params[:pier_id])
     end
 
-    def set_harbour
-      @harbour = Harbour.find(params[:harbour_id])
-    end
+    # kan slettes da du ikke længere har harbour_id i din adresse (se localhost:3000/routes)
+    # def set_harbour
+    #   @harbour = Harbour.find(params[:harbour_id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slip_params
