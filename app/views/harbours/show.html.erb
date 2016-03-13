@@ -26,7 +26,7 @@
 <table class="table table-hover">
   <thead>
     <th>
-      Navn
+      Name of Pier
     </th>
     <th>
       Action
@@ -37,7 +37,7 @@
     <%  @harbour.piers.each do |pier| %>
       <tr>
         <td>
-          <%= link_to pier.name, harbour_piers_path(@harbour, pier)  %>
+          <%= link_to pier.name, pier_path  %>
         </td>
         <td>
           Action 1
@@ -47,8 +47,10 @@
   </tbody>
 </table>
 
+<!-- Sigurd: Ville det ikke give mere mening at slette nedenstående knap. Og i stedet bare lade  -->
 
-<%= link_to "Piers", harbour_piers_path(@harbour), class: "btn btn-default" %>
+
+<%= link_to "Change Piers", harbour_piers_path(@harbour), class: "btn btn-default" %>
 
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
