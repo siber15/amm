@@ -9,9 +9,31 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @pier.name %></dd>
 </dl>
+<table class="table table-hover">
+  <thead>
+    <th>
+      Boatslip Number
+    </th>
+    <th>
+      Action
+    </th>
+  </thead>
+  <tbody>
+    <!-- each loop rundt om tr på @harbour.piers som giver dig en pier hvor du kan hente pier.name  -->
+    <%  @pier.slips.each do |slip| %>
+      <tr>
+        <td>
+          <%= link_to slip.slip_number, device_path  %>
+        </td>
+        <td>
+          Action 1
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-
-<%= link_to "Boatslips", pier_slips_path(@pier), class: "btn btn-default"  %>
+<%= link_to "Change Boatslips", pier_slips_path(@pier), class: "btn btn-default"  %>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               harbour_piers_path(@pier.harbour), :class => 'btn btn-default'  %>
