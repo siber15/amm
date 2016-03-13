@@ -37,7 +37,7 @@
     <%  @harbour.piers.each do |pier| %>
       <tr>
         <td>
-          <%= link_to pier.name, harbour_pier_path(@harbour, pier)  %>
+          <%= link_to pier.name, harbour_piers_path(@harbour, pier)  %>
         </td>
         <td>
           Action 1
@@ -49,6 +49,9 @@
 
 
 <%= link_to "Piers", harbour_piers_path(@harbour), class: "btn btn-default" %>
+
+# sigurd : skal det ikke ind under piers i stedet for harbours
+<%= link_to "Boatslips", harbour_slips_path(@harbour), class: "btn btn-default"  %>
 
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
