@@ -1,14 +1,13 @@
 class DevicesController < ApplicationController
+  before_action :set_slip
   before_action :set_device, only: [:show, :edit, :update, :destroy]
 
   # GET /devices
-  # GET /devices.json
   def index
-    @devices = Device.all
+    @devices = @slip.devices.all
   end
 
   # GET /devices/1
-  # GET /devices/1.json
   def show
   end
 
@@ -22,19 +21,13 @@ class DevicesController < ApplicationController
   end
 
   # POST /devices
-  # POST /devices.json
   def create
     @device = Device.new(device_params)
-
-    respond_to do |format|
       if @device.save
-        format.html { redirect_to @device, notice: 'Device was successfully created.' }
-        format.json { render :show, status: :created, location: @device }
+        redirect_to slip_devices_path(@device.slip), notice: 'Device was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @device.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /devices/1
@@ -65,6 +58,10 @@ class DevicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_device
       @device = Device.find(params[:id])
+    end
+
+    def set_slip
+      @slip = Slip.find(params[:slip_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
