@@ -28,13 +28,10 @@ class BasesController < ApplicationController
 
     respond_to do |format|
       if @basis.save
-        format.html { redirect_to @basis, notice: 'Base was successfully created.' }
-        format.json { render :show, status: :created, location: @basis }
+        redirect_to
       else
-        format.html { render :new }
-        format.json { render json: @basis.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /bases/1
