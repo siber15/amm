@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  harbour_id: 1
+  placement: MyText
+  ip: MyString
+  last_seen: 
+  harbour_id: 
+
+two:
+  harbour_id: 1
+  placement: MyText
+  ip: MyString
+  last_seen: 
+  harbour_id: 

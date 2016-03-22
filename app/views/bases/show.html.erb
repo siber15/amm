@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Harbour:</strong>
+  <%= @basis.harbour_id %>
+</p>
+
+<p>
+  <strong>Placement:</strong>
+  <%= @basis.placement %>
+</p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @basis.ip %>
+</p>
+
+<p>
+  <strong>Last seen:</strong>
+  <%= @basis.last_seen %>
+</p>
+
+<p>
+  <strong>Harbour:</strong>
+  <%= @basis.harbour %>
+</p>
+
+<%= link_to 'Edit', edit_basis_path(@basis) %> |
+<%= link_to 'Back', bases_path %>
