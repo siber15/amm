@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :devices
-
+  resources :bases
 
   root 'harbours#index'
 end
