@@ -4,7 +4,7 @@ class CreateBases < ActiveRecord::Migration
       t.integer :harbour_id
       t.text :placement
       t.string :ip
-      t.DateTime :last_seen
+      t.datetime :last_seen
       t.belongs_to :harbour, index: true, foreign_key: true
 
       t.timestamps null: false
