@@ -1,7 +1,11 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-  before_action :set_slip, only: [:index, :create, :new]
-  
+
+  # Da du ikke har nestet devices under slips længere, kan du ikke direkte hente et slip på den her måde.
+  # derfor kan du slette denne linje, og set_slip action i bunden af controlleren
+  # vi laver på et senere tidspunkt en funktion til at connecte en device med et slip.
+  #before_action :set_slip, only: [:index, :create, :new]
+
   # GET /devices
   def index
     @devices = @slip.devices.all
