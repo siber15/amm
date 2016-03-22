@@ -64,10 +64,6 @@ class DevicesController < ApplicationController
       @device = Device.find(params[:id])
     end
 
-    def set_slip
-      @slip = Slip.find(params[:slip_id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def device_params
       params.require(:device).permit(:slip_id, :active, :device_number, :mac_address, :last_seen, :install_date, :software_version, :hardware_version, :current_status, :killed_date)
