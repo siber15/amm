@@ -15,6 +15,9 @@
       Boatslip Number
     </th>
     <th>
+      Device
+    </th>
+    <th>
       Action
     </th>
   </thead>
@@ -23,17 +26,20 @@
     <%  @pier.slips.each do |slip| %>
       <tr>
         <td>
-          <%= link_to slip.slip_number, device_path  %>
+          <%= link_to slip.slip_number, slip_path(slip)  %>
         </td>
         <td>
-          Action 1
+          <%= link_to(slip.devices.last.name, slip.devices.last) if slip.devices.last %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_slip_path(slip) %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "Change Boatslips", pier_slips_path(@pier), class: "btn btn-default"  %>
+<%= link_to "Create new boatslips", new_pier_slip_path(@pier), class: "btn btn-default"  %>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               harbour_piers_path(@pier.harbour), :class => 'btn btn-default'  %>

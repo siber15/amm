@@ -28,7 +28,7 @@ class SlipsController < ApplicationController
   def create
     @slip = Slip.new(slip_params)
       if @slip.save
-         redirect_to pier_slips_path(@slip.pier), notice: 'Slip was successfully created.'
+         redirect_to pier_path(@slip.pier), notice: 'Slip was successfully created.'
       else
         render :new
       end
