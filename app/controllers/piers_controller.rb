@@ -2,11 +2,10 @@ class PiersController < ApplicationController
 
   # du har kun brug for at sætte din harbour i din index og new action, da du nu har shallow nesting
   # tjek altid din localhost:3000/routes hvis du er i tvivl om hvilke routes du har til rådighed
-  
-  #before_action :set_harbour   bliver til:
-  before_action :set_harbour, only: [:index, :new]
-  before_action :set_pier, only: [:show, :edit, :update, :destroy]
 
+  #before_action :set_harbour   bliver til:
+  before_action :set_pier, only: [:show, :edit, :update, :destroy]
+  before_action :set_harbour, only: [:index, :new]
 
 
   # GET /piers
