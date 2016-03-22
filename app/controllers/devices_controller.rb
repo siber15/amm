@@ -1,7 +1,7 @@
 class DevicesController < ApplicationController
-  before_action :set_slip
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_slip, only: [:index, :create, :new]
+  
   # GET /devices
   def index
     @devices = @slip.devices.all
