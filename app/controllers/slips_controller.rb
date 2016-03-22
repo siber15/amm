@@ -1,9 +1,8 @@
 class SlipsController < ApplicationController
   #before_action :set_harbour
   # du har ikke længere pier til rådighed (se localhost:3000/path) pga. shallow nesting
-
-  before_action :set_pier
   before_action :set_slip, only: [:show, :edit, :update, :destroy]
+  before_action :set_pier, only: [:index, :create, :new]
 
   # GET /slips
   # GET /slips.json
