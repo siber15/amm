@@ -8,7 +8,7 @@ class DevicesController < ApplicationController
 
   # GET /devices
   def index
-    @devices = @slip.devices.all
+    @devices = Device.all
   end
 
   # GET /devices/1
