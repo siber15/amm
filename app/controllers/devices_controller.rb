@@ -66,6 +66,8 @@ class DevicesController < ApplicationController
     count = params[:count] != "" ? params[:count].to_i : 1
     text = params[:text] != "" ? params[:text] : "Device"
 
+    devices = []
+
     #runs x times - defined by count-input or default 1
     count.to_i.times do |i|
       #set the number to add to the text by adding the i index to the start_number
@@ -78,8 +80,16 @@ class DevicesController < ApplicationController
       #writes the name to the console, for debugging
       puts name
 
+      devices << {device_number: name}
+
       #creates the device in the DB
-      Device.create(device_number: name, software_version: params[:software], hardware_version: params[:hardware])
+      #Device.create(device_number: name, software_version: params[:software], hardware_version: params[:hardware])
+    end
+
+    #create all devices at once
+    Device.create(devices) do |d|
+      d.hardware_version = params[:hardware]
+      d.software_version = params[:software]
     end
 
     #redirect the user back to devices path
