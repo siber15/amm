@@ -1,5 +1,5 @@
 class BasesController < ApplicationController
-  before_action :set_basis, only: [:show, :edit, :update, :destroy]
+  before_action :set_bases, only: [:show, :edit, :update, :destroy]
 
   # GET /bases
   # GET /bases.json
@@ -14,7 +14,7 @@ class BasesController < ApplicationController
 
   # GET /bases/new
   def new
-    @basis = Base.new
+    @base = Base.new
   end
 
   # GET /bases/1/edit
@@ -24,8 +24,8 @@ class BasesController < ApplicationController
   # POST /bases
   # POST /bases.json
   def create
-    @basis = Base.new(basis_params)
-      if @basis.save
+    @bases = Base.new(bases_params)
+      if @bases.save
         redirect_to #mangler at redirecte
       else
         render :new
@@ -36,12 +36,12 @@ class BasesController < ApplicationController
   # PATCH/PUT /bases/1.json
   def update
     respond_to do |format|
-      if @basis.update(basis_params)
-        format.html { redirect_to @basis, notice: 'Base was successfully updated.' }
-        format.json { render :show, status: :ok, location: @basis }
+      if @bases.update(bases_params)
+        format.html { redirect_to @bases, notice: 'Base was successfully updated.' }
+        format.json { render :show, status: :ok, location: @bases }
       else
         format.html { render :edit }
-        format.json { render json: @basis.errors, status: :unprocessable_entity }
+        format.json { render json: @bases.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,7 +49,7 @@ class BasesController < ApplicationController
   # DELETE /bases/1
   # DELETE /bases/1.json
   def destroy
-    @basis.destroy
+    @bases.destroy
     respond_to do |format|
       format.html { redirect_to bases_url, notice: 'Base was successfully destroyed.' }
       format.json { head :no_content }
@@ -58,12 +58,12 @@ class BasesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_basis
-      @basis = Base.find(params[:id])
+    def set_bases
+      @bases = Base.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def basis_params
-      params.require(:basis).permit(:harbour_id, :placement, :ip, :last_seen, :harbour_id)
+    def bases_params
+      params.require(:bases).permit(:harbour_id, :placement, :ip, :last_seen, :harbour_id)
     end
 end

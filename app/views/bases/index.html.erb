@@ -15,16 +15,16 @@
   </thead>
 
   <tbody>
-    <% @bases.each do |basis| %>
+    <% @bases.each do |bases| %>
       <tr>
-        <td><%= basis.harbour_id %></td>
-        <td><%= basis.placement %></td>
-        <td><%= basis.ip %></td>
-        <td><%= basis.last_seen %></td>
-        <td><%= basis.harbour %></td>
-        <td><%= link_to 'Show', basis %></td>
-        <td><%= link_to 'Edit', edit_basis_path(basis) %></td>
-        <td><%= link_to 'Destroy', basis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= bases.harbour_id %></td>
+        <td><%= bases.placement %></td>
+        <td><%= bases.ip %></td>
+        <td><%= bases.last_seen %></td>
+        <td><%= bases.harbour %></td>
+        <td><%= link_to 'Show', bases %></td>
+        <td><%= link_to 'Edit', edit_bases_path(bases) %></td>
+        <td><%= link_to 'Destroy', bases, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Base', new_basis_path %>
+<%= link_to 'New Base', new_bases_path %>
