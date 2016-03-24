@@ -48,7 +48,28 @@
     <% end %>
   </tbody>
 </table>
-
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_device_path,
             :class => 'btn btn-primary' %>
+<hr>
+<h4>Add devices <small></small></h4>
+<%= form_tag batch_add_devices_path, method: :post do %>
+  <%= label_tag "text", "Leading text" %>
+  <%= text_field_tag :text, nil, placeholder: "Default: Device" %><br>
+  <%= label_tag "zeros", "Leading zeros" %>
+  <%= text_field_tag :zeros, nil, placeholder: "Default: 4" %><br>
+  <%= label_tag "start_number", "Start number" %>
+  <%= text_field_tag :start_number, nil, placeholder: "Default: 1" %><br>
+  <%= label_tag "count", "Devices to add" %>
+  <%= text_field_tag :count, nil, placeholder: "Default: 1" %><br><br>
+
+  <%= label_tag "software", "Software version" %>
+  <%= text_field_tag :software, nil, placeholder: "" %><br>
+  <%= label_tag "hardware", "Hardware version" %>
+  <%= text_field_tag :hardware, nil, placeholder: "" %><br>
+
+  <p>
+    With the default settings it will create one device named: Device0001
+  </p>
+  <%= submit_tag "Create devices" %>
+<% end %>

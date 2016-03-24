@@ -58,6 +58,34 @@ class DevicesController < ApplicationController
     end
   end
 
+  def batch_add
+
+    #check if values is put in then the param would not be "", if not then set default value
+    start_number = params[:start_number] != "" ? params[:start_number].to_i : 1
+    zeros = params[:zeros] != "" ? params[:zeros].to_i : 4
+    count = params[:count] != "" ? params[:count].to_i : 1
+    text = params[:text] != "" ? params[:text] : "Device"
+
+    #runs x times - defined by count-input or default 1
+    count.to_i.times do |i|
+      #set the number to add to the text by adding the i index to the start_number
+      device_number = start_number + i
+
+      #creates the name for the device
+      # last_number.to_s.rjust(zeros, '0') adds leading zeros (0001, 0002.... 0010, 0011... 0100, 0101 and so on)
+      name = "#{text}#{device_number.to_s.rjust(zeros, '0')}"
+
+      #writes the name to the console, for debugging
+      puts name
+
+      #creates the device in the DB
+      Device.create(device_number: name, software_version: params[:software], hardware_version: params[:hardware])
+    end
+
+    #redirect the user back to devices path
+    redirect_to devices_path, notice: "#{count} devices was created."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_device

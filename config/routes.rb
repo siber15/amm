@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :devices
+  resources :devices do
+    #route to batch add as a collection
+    collection do
+      post :batch_add
+    end
+  end
   resources :bases
 
   root 'harbours#index'
