@@ -25,10 +25,8 @@ class BasesController < ApplicationController
   # POST /bases.json
   def create
     @basis = Base.new(basis_params)
-
-    respond_to do |format|
       if @basis.save
-        redirect_to
+        redirect_to #mangler at redirecte
       else
         render :new
       end
