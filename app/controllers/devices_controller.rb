@@ -28,7 +28,7 @@ class DevicesController < ApplicationController
   def create
     @device = Device.new(device_params)
       if @device.save
-        redirect_to slip_devices_path(@device.slip), notice: 'Device was successfully created.'
+        redirect_to devices_path(@device), notice: 'Device was successfully created.'
       else
         render :new
       end
