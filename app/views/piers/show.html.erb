@@ -5,7 +5,9 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:harbour_id) %>:</strong></dt>
-  <dd><%= @pier.harbour_id %></dd>
+  <dd><%= @pier.harbour.id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:harbour_name) %>:</strong></dt>
+  <dd><%= @pier.harbour.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @pier.name %></dd>
 </dl>
