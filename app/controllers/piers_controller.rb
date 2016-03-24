@@ -53,6 +53,10 @@ class PiersController < ApplicationController
     end
   end
 
+  def edit_multiple
+  end
+  def update_multiple
+  end
   # DELETE /piers/1
   # DELETE /piers/1.json
   def destroy

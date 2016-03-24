@@ -2,9 +2,11 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<% form_tag ... do %>
 <table class="table table-striped">
   <thead>
     <tr>
+      <td><%= check_box_tag "pier_ids[]", pier.id %></td>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:harbour_id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
@@ -26,7 +28,7 @@
         <td><%=l pier.created_at %></td>
         <td>
 
-        <!--  
+        <!--
           det samme gør sig gældende her, du har ikke end edit_harbour_pier_path længere men kun en edit_pier path
           derfor skal du ikke referer harbour mere.
         -->
@@ -38,6 +40,7 @@
     <% end %>
   </tbody>
 </table>
+<%= submit_tag "Edit Checked" %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_harbour_pier_path,
