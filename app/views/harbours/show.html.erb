@@ -37,17 +37,15 @@
     <%  @harbour.piers.each do |pier| %>
       <tr>
         <td>
-          <%= link_to pier.name, pier_path  %>
+          <%= link_to pier.name, pier_path(pier)  %>
         </td>
         <td>
-          Action 1
+          <%= link_to 'Edit', edit_pier_path(pier) %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<!-- Sigurd: Ville det ikke give mere mening at slette nedenstående knap. Og i stedet bare lade  -->
 
 
 <%= link_to "Change Piers", harbour_piers_path(@harbour), class: "btn btn-default" %>
