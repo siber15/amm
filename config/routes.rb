@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       post :batch_add
     end
   end
-  resources :bases
 
   root 'harbours#index'
 end
