@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414122158) do
+ActiveRecord::Schema.define(version: 20160414122758) do
 
   create_table "bases", force: :cascade do |t|
     t.integer  "harbour_id"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20160414122158) do
   end
 
   add_index "bases", ["harbour_id"], name: "index_bases_on_harbour_id"
+
+  create_table "data_logs", force: :cascade do |t|
+    t.integer  "device_id"
+    t.boolean  "status"
+    t.integer  "battery"
+    t.datetime "station_timestamp"
+    t.integer  "station_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "devices", force: :cascade do |t|
     t.integer  "slip_id"

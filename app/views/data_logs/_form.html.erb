@@ -1,0 +1,15 @@
+<%= simple_form_for(@data_log) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :device_id %>
+    <%= f.input :status %>
+    <%= f.input :battery %>
+    <%= f.input :station_timestamp %>
+    <%= f.input :station_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
