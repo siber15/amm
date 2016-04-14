@@ -28,13 +28,10 @@ class StationsController < ApplicationController
 
     respond_to do |format|
       if @station.save
-        format.html { redirect_to @station, notice: 'Station was successfully created.' }
-        format.json { render :show, status: :created, location: @station }
+        redirect_to @station, notice: 'Station was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @station.errors, status: :unprocessable_entity }
+      render :new
       end
-    end
   end
 
   # PATCH/PUT /stations/1
