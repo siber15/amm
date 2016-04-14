@@ -1,14 +1,14 @@
-<%= simple_form_for(@station) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @station, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :harbour_id %>
+  <%= error_span(@station[:harbour_id]) %>
+  <%= f.input :placement %>
+  <%= error_span(@station[:placement]) %>
+  <%= f.input :ip %>
+  <%= error_span(@station[:ip]) %>
+  <%= f.input :last_seen %>
+  <%= error_span(@station[:last_seen]) %>
 
-  <div class="form-inputs">
-    <%= f.input :harbour_id %>
-    <%= f.input :placement %>
-    <%= f.input :ip %>
-    <%= f.input :last_seen %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                stations_path, :class => 'btn btn-default' %>
 <% end %>

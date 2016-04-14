@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322093534) do
+ActiveRecord::Schema.define(version: 20160414113331) do
 
   create_table "bases", force: :cascade do |t|
     t.integer  "harbour_id"
@@ -71,5 +71,14 @@ ActiveRecord::Schema.define(version: 20160322093534) do
   end
 
   add_index "slips", ["pier_id"], name: "index_slips_on_pier_id"
+
+  create_table "stations", force: :cascade do |t|
+    t.integer  "harbour_id"
+    t.text     "placement"
+    t.string   "ip"
+    t.datetime "last_seen"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
