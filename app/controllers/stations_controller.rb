@@ -25,12 +25,10 @@ class StationsController < ApplicationController
   # POST /stations.json
   def create
     @station = Station.new(station_params)
-
-    respond_to do |format|
       if @station.save
         redirect_to @station, notice: 'Station was successfully created.'
       else
-      render :new
+        render :new
       end
   end
 

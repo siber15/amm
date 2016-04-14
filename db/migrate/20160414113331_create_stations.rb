@@ -5,7 +5,7 @@ class CreateStations < ActiveRecord::Migration
       t.text :placement
       t.string :ip
       t.datetime :last_seen
-
+      
       t.timestamps null: false
     end
   end
