@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :data_logs
   resources :users
   
   resources :stations
