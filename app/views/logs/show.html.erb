@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @log.device_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @log.status %>
+</p>
+
+<p>
+  <strong>Battery:</strong>
+  <%= @log.battery %>
+</p>
+
+<p>
+  <strong>Station timestamp:</strong>
+  <%= @log.station_timestamp %>
+</p>
+
+<p>
+  <strong>Station:</strong>
+  <%= @log.station_id %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>
