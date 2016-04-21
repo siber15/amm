@@ -8,10 +8,14 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  
+
   resources :stations
   resources :devices do
     #route to batch add as a collection
+    member do
+      post :kill
+      post :reborn
+    end
     collection do
       post :batch_add
     end

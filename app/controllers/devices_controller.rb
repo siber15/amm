@@ -58,6 +58,15 @@ class DevicesController < ApplicationController
     end
   end
 
+  def kill
+    @device = Device.find(params[:id])
+    if @device.update_column(:killed_date, Time.zone.now)
+      redirect_to :back, notice: "Device killed"
+    else
+      redirect_to :back, alert: "ERROR"
+    end
+  end
+
   def batch_add
 
     #check if values is put in then the param would not be "", if not then set default value
