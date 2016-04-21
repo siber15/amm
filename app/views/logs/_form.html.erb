@@ -1,14 +1,9 @@
 <%= simple_form_for @log, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :device_id %>
-  <%= error_span(@log[:device_id]) %>
   <%= f.input :status %>
-  <%= error_span(@log[:status]) %>
   <%= f.input :battery %>
-  <%= error_span(@log[:battery]) %>
   <%= f.input :station_timestamp %>
-  <%= error_span(@log[:station_timestamp]) %>
   <%= f.input :station_id %>
-  <%= error_span(@log[:station_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
