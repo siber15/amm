@@ -67,6 +67,15 @@ class DevicesController < ApplicationController
     end
   end
 
+  def reborn
+  @device = Device.find(params[:id])
+    if @device.update_column(:killed_date, nil)
+      redirect_to :back, notice: "Device reborned"
+    else
+      redirect_to :back, alert: "ERROR"
+    end
+  end
+
   def batch_add
 
     #check if values is put in then the param would not be "", if not then set default value
