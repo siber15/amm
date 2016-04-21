@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
 
   resources :stations
   resources :devices do
